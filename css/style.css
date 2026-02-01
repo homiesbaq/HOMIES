@@ -1,8 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;600;800&display=swap');
+/* ===============================
+   RESET + VARIABLES
+================================ */
 
-/* =========================
-   RESET + BASE
-========================= */
+:root {
+  --rojo: #D13916;
+  --amarillo: #EEE42D;
+  --negro: #111111;
+  --blanco: #ffffff;
+  --gris: #f5f5f5;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -10,255 +17,293 @@
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
-  background: #ffffff;
-  color: #111;
-  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--blanco);
+  color: var(--negro);
+  line-height: 1.6;
 }
 
-/* =========================
-   VARIABLES DE MARCA
-========================= */
-:root {
-  --rojo: #D13916;
-  --amarillo: #EEE42D;
-  --negro: #111;
-  --gris: #f4f4f4;
-}
+/* ===============================
+   NAV
+================================ */
 
-/* =========================
-   HEADER / NAV
-========================= */
-.header {
-  position: fixed;
-  top: 0;
+.nav {
   width: 100%;
-  padding: 20px 60px;
+  background: var(--blanco);
+  border-bottom: 2px solid var(--negro);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--rojo);
-  z-index: 1000;
 }
 
 .logo {
-  font-family: 'Anton', sans-serif;
-  font-size: 32px;
+  font-size: 1.5rem;
+  font-weight: 700;
   letter-spacing: 2px;
-  color: var(--amarillo);
 }
 
-.header nav a {
-  margin-left: 30px;
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links a {
   text-decoration: none;
-  color: white;
-  font-weight: 600;
+  color: var(--negro);
+  font-weight: 500;
   position: relative;
 }
 
-.header nav a::after {
+.nav-links a::after {
   content: '';
   position: absolute;
-  bottom: -6px;
   left: 0;
+  bottom: -6px;
   width: 0%;
   height: 2px;
-  background: var(--amarillo);
+  background: var(--rojo);
   transition: 0.3s;
 }
 
-.header nav a:hover::after {
+.nav-links a:hover::after,
+.nav-links a.active::after {
   width: 100%;
 }
 
-/* =========================
-   HERO / CARRUSEL
-========================= */
-.hero-carousel {
-  height: 100vh;
-  margin-top: 80px;
-  position: relative;
-  overflow: hidden;
+/* ===============================
+   MAIN GENERAL
+================================ */
+
+.main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 80px 24px;
 }
 
-.slide {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  transform: scale(1.05);
-  transition: opacity 1s ease, transform 1s ease;
+/* ===============================
+   HERO (INDEX)
+================================ */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  align-items: center;
+  margin-bottom: 120px;
 }
 
-.slide.active {
-  opacity: 1;
-  transform: scale(1);
+.hero h2 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.1;
 }
 
-.slide::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,.6), transparent);
+.hero h2 span {
+  background: var(--amarillo);
+  padding: 0 8px;
 }
 
-.slide-content {
-  position: absolute;
-  bottom: 15%;
-  left: 10%;
-  z-index: 2;
-  color: white;
+.hero p {
+  margin-top: 24px;
+  font-size: 1.1rem;
   max-width: 500px;
 }
 
-.slide-content h1 {
-  font-family: 'Anton', sans-serif;
-  font-size: 64px;
-  margin-bottom: 15px;
+.hero-banner {
+  background: var(--rojo);
+  border-radius: 32px;
+  height: 420px;
 }
 
-.slide-content p {
-  font-size: 18px;
-  margin-bottom: 25px;
+/* ===============================
+   SECTIONS
+================================ */
+
+.section {
+  margin-bottom: 120px;
 }
 
-/* BOTÓN */
-.button {
-  display: inline-block;
-  padding: 14px 32px;
-  background: var(--amarillo);
-  color: var(--negro);
+.section h3 {
+  font-size: 2.2rem;
+  margin-bottom: 16px;
+}
+
+.section p {
+  max-width: 600px;
+}
+
+/* ===============================
+   STATEMENT
+================================ */
+
+.statement {
+  background: var(--negro);
+  color: var(--blanco);
+  padding: 100px 24px;
+  text-align: center;
+}
+
+.statement h2 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+/* ===============================
+   COLLECTION HEADER
+================================ */
+
+.collection-header {
+  margin-bottom: 64px;
+}
+
+.collection-header h2 {
+  font-size: 3rem;
+}
+
+.collection-header p {
+  margin-top: 16px;
+  max-width: 500px;
+}
+
+/* ===============================
+   PRODUCTS GRID
+================================ */
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+}
+
+.product-card {
   text-decoration: none;
-  font-weight: 800;
-  letter-spacing: 1px;
+  color: inherit;
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--gris);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.product-image {
+  height: 300px;
+  background: linear-gradient(
+    135deg,
+    var(--rojo),
+    var(--amarillo)
+  );
+}
+
+.product-info {
+  padding: 24px;
+}
+
+.product-info h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.product-info span {
+  font-weight: 600;
+}
+
+/* ===============================
+   PRODUCT PAGE
+================================ */
+
+.product-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+}
+
+.product-details h2 {
+  font-size: 2.5rem;
+}
+
+.product-details p {
+  margin: 24px 0;
+}
+
+.options {
+  margin-bottom: 24px;
+}
+
+.options label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.options select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 2px solid var(--negro);
+}
+
+.buy-btn {
+  display: inline-block;
+  margin-top: 32px;
+  background: var(--rojo);
+  color: var(--blanco);
+  padding: 16px 32px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 600;
   transition: 0.3s;
 }
 
-.button:hover {
-  background: white;
-}
-
-/* =========================
-   MANIFESTO
-========================= */
-.manifesto {
-  padding: 140px 20%;
-  text-align: center;
-  background: var(--gris);
-}
-
-.manifesto h2 {
-  font-family: 'Anton', sans-serif;
-  font-size: 52px;
-  margin-bottom: 30px;
-}
-
-.manifesto p {
-  font-size: 18px;
-  line-height: 1.7;
-}
-
-/* =========================
-   SECCIÓN LO QUE HACEMOS
-========================= */
-.what-we-do {
-  padding: 120px 10%;
-}
-
-.what-we-do h2 {
-  font-family: 'Anton', sans-serif;
-  font-size: 48px;
-  margin-bottom: 50px;
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-}
-
-.service-card {
-  position: relative;
-  overflow: hidden;
-  height: 320px;
-}
-
-.service-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: 0.5s;
-}
-
-.service-card span {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  font-family: 'Anton', sans-serif;
-  font-size: 28px;
-  color: white;
-}
-
-.service-card:hover img {
-  transform: scale(1.1);
-}
-
-/* =========================
-   ANUNCIO / BANNER
-========================= */
-.banner {
-  background: var(--rojo);
-  color: white;
-  padding: 80px 10%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.banner h2 {
-  font-family: 'Anton', sans-serif;
-  font-size: 48px;
-}
-
-.banner p {
-  max-width: 400px;
-}
-
-/* =========================
-   FOOTER
-========================= */
-.footer-editorial {
-  background: var(--negro);
-  color: white;
-  padding: 60px 10%;
-}
-
-.footer-line {
-  height: 2px;
+.buy-btn:hover {
   background: var(--amarillo);
-  margin-bottom: 30px;
+  color: var(--negro);
 }
 
-.footer-content {
+/* ===============================
+   FOOTER
+================================ */
+
+.footer {
+  background: var(--negro);
+  color: var(--blanco);
+  margin-top: 120px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 48px 24px;
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
+  flex-wrap: wrap;
+  gap: 24px;
 }
 
-/* =========================
+/* ===============================
    RESPONSIVE
-========================= */
+================================ */
+
 @media (max-width: 900px) {
-  .services-grid {
+  .hero {
     grid-template-columns: 1fr;
   }
 
-  .manifesto {
-    padding: 100px 10%;
+  .product-page {
+    grid-template-columns: 1fr;
   }
 
-  .slide-content h1 {
-    font-size: 42px;
+  .statement h2 {
+    font-size: 2.2rem;
   }
 }

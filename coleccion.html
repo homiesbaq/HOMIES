@@ -1,32 +1,86 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Colección | HOMIES</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <!-- MISMO CSS -->
+  <link rel="stylesheet" href="./css/style.css" />
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-<header class="header">
-  <div class="logo">HOMIES</div>
-  <nav>
-    <a href="index.html">Inicio</a>
-    <a href="coleccion.html">Colección</a>
+  <!-- ================= NAV ================= -->
+  <nav class="nav">
+    <div class="nav-container">
+      <h1 class="logo">HOMIES</h1>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="collection.html" class="active">Colección</a></li>
+      </ul>
+    </div>
   </nav>
-</header>
 
-<section class="collection">
-  <h1>Nueva Colección</h1>
-  <div class="products-grid" id="products-grid"></div>
-</section>
+  <!-- ================= MAIN ================= -->
+  <main class="main">
 
-<footer class="footer">
-  <p>© 2026 HOMIES</p>
-</footer>
+    <!-- ===== HEADER ===== -->
+    <section class="collection-header">
+      <h2>Colección</h2>
+      <p>
+        Prendas y objetos gráficos inspirados en calle,
+        cultura y diseño contemporáneo.
+      </p>
+    </section>
 
-<script src="js/products.js"></script>
-<script src="js/app.js"></script>
+    <!-- ===== PRODUCTS GRID ===== -->
+    <section class="products-grid">
+
+      <!-- PRODUCTO 1 -->
+      <a href="producto.html" class="product-card">
+        <div class="product-image"></div>
+        <div class="product-info">
+          <h3>Gorra HOMIES</h3>
+          <span>$85.000 COP</span>
+        </div>
+      </a>
+
+      <!-- PRODUCTO 2 -->
+      <a href="producto.html" class="product-card">
+        <div class="product-image"></div>
+        <div class="product-info">
+          <h3>Tote Bag HOMIES</h3>
+          <span>$65.000 COP</span>
+        </div>
+      </a>
+
+      <!-- PRODUCTO 3 -->
+      <a href="producto.html" class="product-card">
+        <div class="product-image"></div>
+        <div class="product-info">
+          <h3>Prenda Gráfica</h3>
+          <span>$120.000 COP</span>
+        </div>
+      </a>
+
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="footer-container">
+      <p>© 2026 HOMIES</p>
+      <p>Streetwear nacido en Barranquilla</p>
+    </div>
+  </footer>
+
 </body>
 </html>

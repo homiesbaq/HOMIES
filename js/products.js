@@ -1,19 +1,23 @@
-const products = [
-  {
-    id: 1,
-    name: "Camiseta Rey Momo",
-    price: 90000,
-    image: "img/producto1.jpg",
-    colors: ["Rojo", "Negro"],
-    sizes: ["S", "M", "L"]
-  },
-  {
-    id: 2,
-    name: "Hoodie Carnaval",
-    price: 160000,
-    image: "img/producto2.jpg",
-    colors: ["Negro"],
-    sizes: ["M", "L", "XL"]
-  },
-  // copia y cambia hasta tener 10
-];
+function comprarWhatsApp() {
+  const talla = document.getElementById("talla").value;
+  const color = document.getElementById("color").value;
+
+  if (talla === "" || color === "") {
+    alert("Por favor selecciona talla y color");
+    return;
+  }
+
+  const mensaje = `
+Hola 👋 quiero comprar en *HOMIES*
+
+🧢 Producto: Camiseta HOMIES Classic
+📏 Talla: ${talla}
+🎨 Color: ${color}
+💰 Precio: $95.000 COP
+  `;
+
+  const numero = "573244529453";
+  const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+
+  window.open(url, "_blank");
+}

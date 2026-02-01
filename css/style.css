@@ -1,22 +1,264 @@
-/* ===== FIX PARA TU HTML ACTUAL ===== */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;600;800&display=swap');
 
-.section {
-  padding: 120px 8%;
+/* =========================
+   RESET + BASE
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #ffffff;
+  color: #111;
+  overflow-x: hidden;
+}
+
+/* =========================
+   VARIABLES DE MARCA
+========================= */
+:root {
+  --rojo: #D13916;
+  --amarillo: #EEE42D;
+  --negro: #111;
+  --gris: #f4f4f4;
+}
+
+/* =========================
+   HEADER / NAV
+========================= */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--rojo);
+  z-index: 1000;
+}
+
+.logo {
+  font-family: 'Anton', sans-serif;
+  font-size: 32px;
+  letter-spacing: 2px;
+  color: var(--amarillo);
+}
+
+.header nav a {
+  margin-left: 30px;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  position: relative;
+}
+
+.header nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--amarillo);
+  transition: 0.3s;
+}
+
+.header nav a:hover::after {
+  width: 100%;
+}
+
+/* =========================
+   HERO / CARRUSEL
+========================= */
+.hero-carousel {
+  height: 100vh;
+  margin-top: 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.slide::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.6), transparent);
+}
+
+.slide-content {
+  position: absolute;
+  bottom: 15%;
+  left: 10%;
+  z-index: 2;
+  color: white;
+  max-width: 500px;
+}
+
+.slide-content h1 {
+  font-family: 'Anton', sans-serif;
+  font-size: 64px;
+  margin-bottom: 15px;
+}
+
+.slide-content p {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+/* BOTÓN */
+.button {
+  display: inline-block;
+  padding: 14px 32px;
+  background: var(--amarillo);
+  color: var(--negro);
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background: white;
+}
+
+/* =========================
+   MANIFESTO
+========================= */
 .manifesto {
+  padding: 140px 20%;
   text-align: center;
+  background: var(--gris);
 }
 
 .manifesto h2 {
   font-family: 'Anton', sans-serif;
-  font-size: 2.5rem;
-  color: var(--black);
+  font-size: 52px;
+  margin-bottom: 30px;
 }
 
 .manifesto p {
-  max-width: 600px;
-  margin: 20px auto 0;
-  color: #555;
-  line-height: 1.6;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* =========================
+   SECCIÓN LO QUE HACEMOS
+========================= */
+.what-we-do {
+  padding: 120px 10%;
+}
+
+.what-we-do h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: 48px;
+  margin-bottom: 50px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.service-card {
+  position: relative;
+  overflow: hidden;
+  height: 320px;
+}
+
+.service-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.service-card span {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-family: 'Anton', sans-serif;
+  font-size: 28px;
+  color: white;
+}
+
+.service-card:hover img {
+  transform: scale(1.1);
+}
+
+/* =========================
+   ANUNCIO / BANNER
+========================= */
+.banner {
+  background: var(--rojo);
+  color: white;
+  padding: 80px 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.banner h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: 48px;
+}
+
+.banner p {
+  max-width: 400px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer-editorial {
+  background: var(--negro);
+  color: white;
+  padding: 60px 10%;
+}
+
+.footer-line {
+  height: 2px;
+  background: var(--amarillo);
+  margin-bottom: 30px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .manifesto {
+    padding: 100px 10%;
+  }
+
+  .slide-content h1 {
+    font-size: 42px;
+  }
 }
